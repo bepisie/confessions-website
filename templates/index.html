@@ -3,18 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confessions</title>
+    <title>Confessions Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic reset for margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(270deg, #00c6ff, #0072ff, #89f7fe, #66a6ff);
+            background-size: 800% 800%;
+            animation: gradientShift 10s ease infinite;
+            color: #fff;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: center;
+            color: #fff;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background-color: #fff;
+            color: #0072ff;
+            border: none;
+            border-radius: 50px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0072ff;
+            color: #fff;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Confessions Website</h1>
-    <div class="buttons">
-        <a href="{{ url_for('write_confession') }}">
-            <button>Write a Confession</button>
-        </a>
-        <a href="{{ url_for('see_confessions') }}">
-            <button>See Confessions</button>
-        </a>
+    <div class="home-container">
+        <h1>confessions 😬</h1>
+        <div class="buttons">
+            <a href="{{ url_for('write_confession') }}">
+                <button>write one 🧑‍💻</button>
+            </a>
+            <a href="{{ url_for('see_confessions') }}">
+                <button>see some 🕵️</button>
+            </a>
+        </div>
     </div>
+
+    <footer>
+        Made by bepi ❤️
+    </footer>
+
 </body>
 </html>

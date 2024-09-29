@@ -5,20 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See Confessions</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(270deg, #00c6ff, #0072ff, #89f7fe, #66a6ff);
+            background-size: 800% 800%;
+            animation: gradientShift 10s ease infinite;
+            color: #fff;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: center;
+            color: #fff;
+        }
+
+        .confessions-container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .confessions-list {
+            height: 400px;
+            overflow-y: scroll;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .confessions-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .confessions-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(240, 240, 240, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Confessions</h1>
-    <div class="confessions-list">
-        {% if confessions %}
-            <ul>
-                {% for confession in confessions %}
-                    <li>{{ confession }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No confessions yet.</p>
-        {% endif %}
+    <div class="confessions-container">
+        <h1>anonymous confessions 🤫</h1>
+        <div class="confessions-list">
+            {% if confessions %}
+                <ul>
+                    {% for confession in confessions %}
+                        <li>{{ confession }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No confessions yet.</p>
+            {% endif %}
+        </div>
+        <a href="{{ url_for('home') }}">Back to Home</a>
     </div>
-    <a href="{{ url_for('home') }}">Back to Home</a>
 </body>
 </html>
