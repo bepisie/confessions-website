@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Confession</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Write Your Confession</h1>
+    <form action="{{ url_for('write_confession') }}" method="POST">
+        <textarea name="confession" rows="5" cols="40" placeholder="Write your confession here..." required></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
